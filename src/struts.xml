@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 修改struts2默认常量 i18n 国际化 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<!-- 指定反问activity时的后缀名 -->
+	<constant name="struts.action.extension" value="action"/>
+	<!-- 
+		指定Styuts2是否以开发模式运行 :
+			1.热加载主配置(不需要重启即可生效) 
+			2.提供更多错误信息输出,方 便开发时的调试 
+	-->
+	<constant name="struts.devMode" value="true"/>
+	<!-- 
+		配置动态方法调用常量 动态配置常量是否开启 默认关闭 
+		http://127.0.0.1:8080/Struts2Prokect/dyunamic/Demo1Action!add 
+	-->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<!-- 
+		package 	: 将Actionp配置封装,就是可以再package中配置很多个Action 
+		name属性  		: 给包起个名字,起到标识作用, 
+		extends属性	: 继承一个指定包 
+		abstract属性   : 包是否为抽象的,标识性属性,标识该包不能独立运行,专门被集成 
+	-->
+	<package name="hello" namespace="/" extends="struts-default">
+	
+		<action name="HelloAction" class="com.yzhg.struts.action.HelloAction">
+			<result name="success" type="dispatcher">/index.jsp</result>
+		</action>
+
+		<action name="PropertyAction" class="com.yzhg.struts.action.PropertyAction" >
+			<result name="success" >/index.jsp</result>
+		</action>
+
+
+		<action name="UserLoginAction" class="com.yzhg.struts.action.UserLoginAction">
+			<result name="success">index.jsp</result>
+		</action>
+	</package>
+</struts>
+
+
